@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prepárate para tus Exámenes</title>
+  <style>
+    :root {
+      --bg-color: #e3f2fd;
+      --text-color: #000000;
+      --card-bg: #ffffff;
+      --accent: #2196f3;
+      --nav-bg: #1976d2;
+      --footer-bg: #0d47a1;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --card-bg: #1e1e1e;
+      --accent: #64b5f6;
+      --nav-bg: #0d47a1;
+      --footer-bg: #0d47a1;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    header {
+      background-color: var(--accent);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #modo {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section {
+      background: var(--card-bg);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      transition: background 0.3s, color 0.3s, opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.3rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.7rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: var(--footer-bg);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    ¿Cómo prepararte para un examen?
+  </header>
+
+  <nav>
+    <a onclick="mostrarSeccion('introduccion')">Inicio</a>
+    <a onclick="mostrarSeccion('organizacion')">Organización</a>
+    <a onclick="mostrarSeccion('tecnicas')">Técnicas</a>
+    <a onclick="mostrarSeccion('tips')">Tips</a>
+    <a onclick="mostrarSeccion('distracciones')">Distracciones</a>
+    <a onclick="mostrarSeccion('recursos')">Recursos</a>
+    <button id="modo" onclick="toggleModo()">🌙 Modo oscuro</button>
+  </nav>
+
+  <main>
+    <section id="introduccion" class="active">
+      <h2>🚀 Introducción</h2>
+      <p>
+        Estudiar para un examen no tiene que ser una tortura, ni mucho menos una carrera contra el tiempo que te deja todo estresado y sin dormir. La clave no está en cuánto tiempo pasas frente a los apuntes, sino en cómo usas ese tiempo de forma inteligente y enfocada. Aquí no venimos a decirte “échale ganas” nada más, venimos a darte herramientas reales que te van a servir para estudiar mejor, recordar más, y llegar al examen con seguridad en lo que sabes.
+      </p>
+      <p>
+        Esta página está diseñada para ser tu compa de estudio. Reunimos los mejores consejos, técnicas y recursos para que no solo apruebes, sino que te sientas bien mientras te preparas. Desde cómo organizar tu tiempo, hasta cómo estudiar sin volverte loco o distraerte a cada rato. También vas a encontrar links con material para cada materia, por si quieres reforzar lo que ya sabes o empezar desde cero.
+      </p>
+      <p>
+        Recuerda: no necesitas ser un genio, necesitas constancia, estrategia y motivación. Y si ya llegaste hasta aquí, ya estás haciendo más que muchos. Así que ponte cómodo, navega por las secciones, y prepárate para darle con todo. ¡Tú puedes, y aquí estamos para ayudarte!
+      </p>
+    </section>
+
+    <section id="organizacion">
+      <h2>📚 Organización</h2>
+      <p>
+        Si no te organizas, te carga la fregada. Así de simple. Querer estudiar sin planear es como querer armar un mueble sin instrucciones: te frustras, te confundes y al final terminas haciendo todo a lo güey. La organización es tu mejor aliada si neta quieres pasar tus exámenes sin que se te frían los sesos.
+      </p>
+      <p>
+        Primero, agarra una libreta, el calendario de tu cel o una app, y arma un horario de estudio realista. No pongas “5 horas diarias” si sabes que no las vas a cumplir. Es mejor poquito pero constante. Divide los temas por días, y pon prioridad a lo que más te cuesta. No le des vueltas a lo fácil nomás por sentirte productivo.
+      </p>
+      <p>
+        Usa colores, notas, alarmas, lo que sea que te ayude a tener claro qué toca cada día. Ah, y muy importante: deja huecos para descansar. No eres robot, y quemarte no te va a hacer más listo, al contrario. Haz que tus sesiones de estudio sean sagradas: sin celular, sin redes, sin pretextos.
+      </p>
+      <p>
+        También te recomiendo que apliques la técnica del pomodoro (estudiar 25 min, descansar 5) o bloques de 45-15. Verás que avanzas más en menos tiempo. Y si tienes exámenes de varias materias, no mezcles todo en un solo día. Alterna: hoy historia y química, mañana mates y español.
+      </p>
+      <p>
+        En resumen: planea como si fueras estratega de guerra. Si sabes lo que vas a hacer cada día, no pierdes tiempo, no te estresas y te sientes en control. Esa es la clave para no solo estudiar mejor, sino con cabeza fría. ¡Organízate chido y verás cómo todo fluye!
+      </p>
+    </section>
+
+    <section id="tecnicas">
+      <h2>🧠 Técnicas de estudio</h2>
+      <p>
+        No basta con leer y releer como si fueras perico de biblioteca. Para meter la información a la cabeza de verdad, tienes que usar técnicas que hagan que tu cerebro trabaje de forma activa y dinámica. Primero, prueba con mapas mentales: esos dibujos con flechas y colores que organizan las ideas y hacen que todo tenga sentido y conexión.
+      </p>
+      <p>
+        Hacer resúmenes a mano es otro truco brutal. No copies y pegues; escribir a mano obliga a que proceses lo que lees y lo entiendas mejor. Además, se queda más tiempo en tu memoria. Otro clásico que nunca falla son las flashcards o tarjetas de preguntas y respuestas: sirven para ponerte a prueba rápido y ver qué tienes que repasar más.
+      </p>
+      <p>
+        Pero aquí no termina la cosa. Grábate explicando los temas en voz alta, aunque te sientas medio loco. Esa técnica te ayuda a detectar en qué partes tienes bronca y además refuerza lo aprendido. Puedes escuchar esas grabaciones mientras caminas, vas en transporte o haces tareas, así aprovechas el tiempo al máximo.
+      </p>
+      <p>
+        La técnica de enseñanza es súper efectiva: intenta explicarle a alguien más lo que estudiaste, como si fueras profe. Si no tienes a nadie, habla contigo mismo frente al espejo. El chiste es obligar al cerebro a organizar la info y expresarla con tus propias palabras.
+      </p>
+      <p>
+        No olvides variar la forma de estudiar para que el cerebro no se aburra ni se canse. Combina lectura, escritura, escucha y práctica con ejercicios o exámenes simulados. Eso hará que recuerdes más y mejor.
+      </p>
+      <p>
+        En resumen: ponle creatividad y acción a tus estudios, no seas de los que solo leen sin pensar. Usa todas estas técnicas para estudiar como un campeón y pasar cualquier examen sin miedo.
+      </p>
+    </section>
+
+    <section id="tips">
+      <h2>📌 Tips antes del examen</h2>
+      <p>
+        No te hagas bolas la noche antes con maratones de estudio que solo te van a dejar con la mente quemada y el cuerpo hecho trizas. Duerme mínimo 7 horas para que tu cerebro funcione al 100% y puedas pensar claro.
+      </p>
+      <p>
+        Ten lista la ropa, lápices, borradores y documentos desde un día antes para evitar andar con la cabeza en las nubes y estrés extra. No dejes nada para el último minuto.
+      </p>
+      <p>
+        Come algo ligero y nutritivo antes de entrar, nada de empachos ni cosas pesadas que te hagan sentir mal. Mantente hidratado, pero no te pases con el agua para que no tengas que salir mil veces al baño.
+      </p>
+      <p>
+        Si te sientes nervioso, respira profundo y repite mentalmente que estás preparado. Confía en tu esfuerzo y mantén la calma. Los nervios son normales, pero no dejes que te controlen.
+      </p>
+    </section>
+
+    <section id="distracciones">
+      <h2>🛑 Cómo evitar distracciones</h2>
+      <p>
+        El celular puede ser tu peor enemigo si no lo controlas. Apágalo, ponlo en modo avión o déjalo en otra habitación. Nada de tentaciones como TikTok, WhatsApp o juegos cuando estés estudiando.
+      </p>
+      <p>
+        Busca un lugar limpio, tranquilo y bien iluminado. Nada de estudiar en la cama o lugares que inviten a dormir. Tu espacio debe decirle a tu cerebro “aquí se trabaja en serio”.
+      </p>
+      <p>
+        Usa apps que te ayuden a mantener la concentración, como Forest o Focus To-Do. Estas apps te premian por no usar el celular y crean un sentido de logro que te motiva a seguir.
+      </p>
+      <p>
+        La música puede ayudar, pero mejor si es sin letra o instrumental para que no te distraigas cantando o pensando en la canción. Experimenta y encuentra qué funciona mejor para ti.
+      </p>
+      <p>
+        En resumen: elimina todas las tentaciones y crea un ambiente que te impulse a enfocarte. Cuando dominas tus distracciones, nadie te puede parar.
+      </p>
+    </section>
+
+    <section id="recursos">
+      <h2>🔗 Recursos por materia</h2>
+      <ul>
+        <li><strong>Matemáticas:</strong> 
+          <a href="https://www.youtube.com/@KhanAcademyEspanol" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Khan Academy Español</a>, 
+          <a href="https://www.youtube.com/@Math2me" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Math2me</a>, 
+          <a href="https://www.youtube.com/@JulioProfe" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">JulioProfe</a>,
+          <a href="https://www.youtube.com/@UnProfesor" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">UnProfesor</a>
+        </li>
+        <li><strong>Español:</strong> 
+          <a href="https://www.youtube.com/@AcademiaInternet" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Academia Internet</a>, 
+          <a href="https://www.youtube.com/@LetrasEnRed" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Letras en Red</a>, 
+          <a href="https://www.youtube.com/@MundoLengua" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Mundo Lengua</a>
+        </li>
+        <li><strong>Química:</strong> 
+          <a href="https://www.youtube.com/@Quimitube" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Quimitube</a>, 
+          <a href="https://www.youtube.com/@UnProfesor" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">UnProfesor</a>,
+          <a href="https://www.youtube.com/@CursoEnLineaDeQuimica" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Curso en Línea de Química</a>
+        </li>
+        <li><strong>Física:</strong> 
+          <a href="https://www.youtube.com/@JulioProfe" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">JulioProfe</a>, 
+          <a href="https://www.youtube.com/@QuantumFracture" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Quantum Fracture</a>,
+          <a href="https://www.youtube.com/@UnProfesor" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">UnProfesor</a>
+        </li>
+        <li><strong>Historia de México:</strong> 
+          <a href="https://www.youtube.com/@AcademiaPlay" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Academia Play</a>, 
+          <a href="https://www.youtube.com/@HistoriaParaTodos" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Historia para Todos</a>,
+          <a href="https://www.youtube.com/@DateUnVlog" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Date un Vlog</a>
+        </li>
+        <li><strong>Biología:</strong> 
+          <a href="https://www.youtube.com/@AcademiaInternet" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Academia Internet</a>, 
+          <a href="https://www.youtube.com/@BiologiaEn10Minutos" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Biología en 10 Minutos</a>,
+          <a href="https://www.youtube.com/@unProfesor" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">UnProfesor</a>
+        </li>
+        <li><strong>Geografía:</strong> 
+          <a href="https://www.youtube.com/@UnProfesor" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">UnProfesor</a>, 
+          <a href="https://www.youtube.com/@GeografiaVisual" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Geografía Visual</a>,
+          <a href="https://www.youtube.com/@AcademiaInternet" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Academia Internet</a>
+        </li>
+        <li><strong>Literatura:</strong> 
+          <a href="https://www.youtube.com/@La Literatura" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">La Literatura</a>, 
+          <a href="https://www.youtube.com/@CaféLiterario" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Café Literario</a>,
+          <a href="https://www.youtube.com/@ElCriticoLiterario" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">El Crítico Literario</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Hecho con 💻 por Abril Yutmi, Jamin Linares Rubio, Paulina Rubio Zapata, Yeimi Aide - 2025
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll('main section');
+      secciones.forEach(sec => {
+        sec.classList.remove('active');
+        sec.style.opacity = 0;
+      });
+      const activa = document.getElementById(id);
+      activa.classList.add('active');
+      setTimeout(() => {
+        activa.style.opacity = 1;
+      }, 50);
+    }
+
+    function toggleModo() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const btn = document.getElementById('modo');
+      if (body.classList.contains('dark-mode')) {
+        btn.textContent = '☀️ Modo claro';
+      } else {
+        btn.textContent = '🌙 Modo oscuro';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
